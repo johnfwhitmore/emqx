@@ -904,7 +904,7 @@ handle_event({call, From}, stop, _StateName, _State) ->
     {stop_and_reply, normal, [{reply, From, ok}]};
 handle_event(info, {TcpOrSsL, _Sock, Data}, _StateName, State)
     when TcpOrSsL =:= tcp; TcpOrSsL =:= ssl ->
-    ?LOG(debug, "[Client] RECV Data: ~p", [Data]),
+    ?LOG(debug, "[Client] RECV-D Data: ~p", [Data]),
     process_incoming(Data, [], run_sock(State));
 
 handle_event(info, {Error, _Sock, Reason}, _StateName, State)

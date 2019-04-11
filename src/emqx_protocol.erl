@@ -871,7 +871,7 @@ check_sub_acl(TopicFilters, #pstate{credentials = Credentials}) ->
       end, {ok, []}, TopicFilters).
 
 trace(recv, Packet) ->
-    ?LOG(debug, "[Protocol] RECV ~s", [emqx_packet:format(Packet)]);
+    ?LOG(debug, "[Protocol] RECV-C ~s", [emqx_packet:format(Packet)]);
 trace(send, Packet) ->
     ?LOG(debug, "[Protocol] SEND ~s", [emqx_packet:format(Packet)]).
 

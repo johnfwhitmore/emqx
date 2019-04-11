@@ -174,7 +174,7 @@ websocket_handle({binary, [<<>>]}, State) ->
     {ok, ensure_stats_timer(State)};
 websocket_handle({binary, Data}, State = #state{parse_state = ParseState,
                                                 proto_state = ProtoState}) ->
-    ?LOG(debug, "[WS Connection] RECV ~p", [Data]),
+    ?LOG(debug, "[WS Connection] RECV-B ~p", [Data]),
     BinSize = iolist_size(Data),
     emqx_pd:update_counter(recv_oct, BinSize),
     emqx_metrics:trans(inc, 'bytes/received', BinSize),
